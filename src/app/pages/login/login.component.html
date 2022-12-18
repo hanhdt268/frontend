@@ -1,0 +1,40 @@
+<div class="bootstrap-wrapper">
+  <div class="container-register100" style="background-image: url('assets/bg-01.jpg')">
+    <div class="row"  style="margin-top: 20px">
+      <div class="wrap-login100 col-md-6 offset-md-3">
+        <h1 class="login100-form-title mt20 p-b-53" style="text-align: center">Sign Up</h1>
+
+        <!--        {{user | json}}-->
+        <form class="login100-form" (ngSubmit)="formSubmit()">
+
+          <!--          Username field-->
+          <a href="#" class="btn-face m-b-20 ">
+            <i class="fab fa-facebook-square"></i>
+            Facebook
+          </a>
+          <a href="#" class="btn-google m-b-20">
+            <img src="assets/icon-google.png" alt="Google">
+            Google
+          </a>
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Username</mat-label>
+            <input required  [(ngModel)]="loginData.username" name="username" matInput placeholder="Enter Here">
+            <mat-hint>Valid UserName !!</mat-hint>
+          </mat-form-field>
+
+          <!--          Password field-->
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Password</mat-label>
+            <input required type="password" [(ngModel)]="loginData.password" name="password" matInput placeholder="Enter Here">
+          </mat-form-field>
+
+          <div class="container text-center">
+            <button  type="submit" style="margin-bottom: 10px" mat-raised-button color="primary">Sign Up</button>
+            <button style="margin-bottom: 10px" mat-raised-button color="accent">Reset</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
