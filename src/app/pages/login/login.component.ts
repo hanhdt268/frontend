@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {LoginService} from "../../services/login.service";
 import {Router} from "@angular/router";
+import Swal from "sweetalert2";
+
 
 @Component({
   selector: 'app-login',
@@ -38,7 +40,6 @@ export class LoginComponent implements OnInit {
       next: (data: any)=> {
         console.log("success");
         console.log(data)
-
         //login...
         this._login.loginUser(data.token);
 
@@ -49,9 +50,12 @@ export class LoginComponent implements OnInit {
             //admin: admin dashboard
             //normal: normal dashboard
             if (this._login.getUserRole()== 'Admin'){
-                this._router.navigate(['admin'])
+              Swal.fire('Successfully', 'Login', 'success')
+                this._router.navigate(['admin']);
+                this._login.loginStatusSubject.next(true);
             }else if (this._login.getUserRole()== 'Normal'){
-                this._router.navigate(['user-dashboard'])
+                this._router.navigate(['user-dashboard']);
+              this._login.loginStatusSubject.next(true);
             }else {
               this._login.logOut();
             }

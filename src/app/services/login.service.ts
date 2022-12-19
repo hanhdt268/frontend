@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {environment} from "../../environments/environment";
 import {HttpClient} from "@angular/common/http";
+import {Observable, Subject} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -11,23 +12,21 @@ export class LoginService {
 
   private apiBaseUrl = environment.apiBaseUrl
 
+  public loginStatusSubject= new Subject<boolean>();
   constructor(private _http: HttpClient) { }
 
   //current user: which is logged
-  public getCurrentUser(){
+  public getCurrentUser(): Observable<any>{
     return this._http.get(`${this.apiBaseUrl}/current-user`);
   }
 
 
-
-
   //generate token
-  public generateToken(loginDate: any){
+  public generateToken(loginDate: any):Observable<any>{
     return  this._http.post(`${this.apiBaseUrl}/generate-token`, loginDate);
   }
 
   //login user: set token in localStorage
-
   public loginUser(token: any){
     localStorage.setItem('token', token);
     return true;

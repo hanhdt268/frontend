@@ -3,6 +3,7 @@ import {UserService} from "../../services/user.service";
 import {HttpErrorResponse} from "@angular/common/http";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import Swal from 'sweetalert2'
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-signup',
@@ -19,7 +20,7 @@ export class SignupComponent implements OnInit {
     phone:'',
 
   }
-  constructor(private userService: UserService, private _snack: MatSnackBar) { }
+  constructor(private userService: UserService, private _snack: MatSnackBar, private _router: Router) { }
 
   ngOnInit(): void {
   }
@@ -34,9 +35,13 @@ export class SignupComponent implements OnInit {
     this.userService.addUser(this.user).subscribe({
       next: (data)=> {
         Swal.fire('Successfully','user is registered', 'success')
+        this._router.navigate(['user-dashboard'])
       },
       error: (error)=> {
-        Swal.fire('Register Fail', 'username already exists', 'error')
+        this._snack.open('user already exists !!', '',{
+          duration: 3000
+        });
+        // Swal.fire('Register Fail', 'username already exists', 'error')
       },
       complete: ()=> console.log("the end")
     })

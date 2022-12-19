@@ -1,0 +1,46 @@
+<mat-card *ngIf="user">
+  <h1>Welcome to Profile</h1>
+<!--  {{user | json}}-->
+  <mat-card-content>
+    <div class="bootstrap-wrapper">
+      <div class="container">
+        <div class="container text-center">
+          <img src="https://www.bootdey.com/img/Content/avatar/avatar7.png" alt="" class="profile-img">
+
+          <h2 class="mt20">{{user.firstName}} {{user.lastName}}</h2>
+        </div>
+
+        <div class="row">
+          <div class="col-md-10 offset-md-1">
+              <table class="table text-center">
+                <tr>
+                  <td>Username</td>
+                  <td>{{user.username}}</td>
+                </tr>
+                <tr>
+                  <td>UserId</td>
+                  <td>{{user.id}}</td>
+                </tr>
+                <tr>
+                  <td>Email</td>
+                  <td>{{user.email}}</td>
+                </tr>
+                <tr>
+                  <td>Phone</td>
+                  <td>{{user.phone}}</td>
+                </tr>
+                <tr>
+                  <td>Role</td>
+                  <td>{{user.authorities[0].authority}}</td>
+                </tr>
+              </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <mat-card-actions class="text-center">
+      <button mat-raised-button color="primary">Update</button>
+      <button mat-raised-button color="warn">Reset</button>
+    </mat-card-actions>
+  </mat-card-content>
+</mat-card>

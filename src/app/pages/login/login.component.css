@@ -38,7 +38,7 @@
   align-items: center;
   padding: 15px;
   /*width: calc((100% - 20px) /2);*/
-  width: calc((100% - 20px) );
+  width: calc((100% - 20px) /2);
   height:70px;
   border-radius: 10px;
   box-shadow: 0 1px 5px 0px rgba(0, 0, 0, 0.2);
@@ -60,4 +60,20 @@
   font-size: 30px;
   margin-right: 17px;
   padding-bottom: 3px;
+}
+.social{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.social a{
+  text-decoration-line: none;
+}
+@media screen and (max-width: 456px) {
+  .social{
+    flex-direction: column;
+  }
+  .social a:last-child{
+    margin-top: 10px;
+  }
 }

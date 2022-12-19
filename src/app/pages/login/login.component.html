@@ -8,14 +8,16 @@
         <form class="login100-form" (ngSubmit)="formSubmit()">
 
           <!--          Username field-->
-          <a href="#" class="btn-face m-b-20 ">
-            <i class="fab fa-facebook-square"></i>
-            Facebook
-          </a>
-          <a href="#" class="btn-google m-b-20">
-            <img src="assets/icon-google.png" alt="Google">
-            Google
-          </a>
+          <div class="social">
+            <a href="#" class="btn-face m-b-20 mb10 ">
+              <i class="fab fa-facebook-square"></i>
+              Facebook
+            </a>
+            <a href="#" class="btn-google m-b-20 mb10">
+              <img src="assets/icon-google.png" alt="Google">
+              Google
+            </a>
+          </div>
           <mat-form-field class="full-width" appearance="outline">
             <mat-label>Username</mat-label>
             <input required  [(ngModel)]="loginData.username" name="username" matInput placeholder="Enter Here">
