@@ -1,46 +1,101 @@
 <mat-card *ngIf="user">
   <h1>Welcome to Profile</h1>
-<!--  {{user | json}}-->
+  <!--  {{user | json}}-->
   <mat-card-content>
     <div class="bootstrap-wrapper">
       <div class="container">
         <div class="container text-center">
-          <img src="https://www.bootdey.com/img/Content/avatar/avatar7.png" alt="" class="profile-img">
+          <img alt="" class="profile-img" src="{{user.profile}}">
 
           <h2 class="mt20">{{user.firstName}} {{user.lastName}}</h2>
         </div>
 
         <div class="row">
           <div class="col-md-10 offset-md-1">
-              <table class="table text-center">
-                <tr>
-                  <td>Username</td>
-                  <td>{{user.username}}</td>
-                </tr>
-                <tr>
-                  <td>UserId</td>
-                  <td>{{user.id}}</td>
-                </tr>
-                <tr>
-                  <td>Email</td>
-                  <td>{{user.email}}</td>
-                </tr>
-                <tr>
-                  <td>Phone</td>
-                  <td>{{user.phone}}</td>
-                </tr>
-                <tr>
-                  <td>Role</td>
-                  <td>{{user.authorities[0].authority}}</td>
-                </tr>
-              </table>
+            <table class="table text-center">
+              <tr>
+                <td>Username</td>
+                <td>{{user.username}}</td>
+              </tr>
+              <tr>
+                <td>UserId</td>
+                <td>{{user.id}}</td>
+              </tr>
+              <tr>
+                <td>Email</td>
+                <td>{{user.email}}</td>
+              </tr>
+              <tr>
+                <td>Phone</td>
+                <td>{{user.phone}}</td>
+              </tr>
+              <tr>
+                <td>Role</td>
+                <td>{{user.authorities[0].authority}}</td>
+              </tr>
+            </table>
+            <div class="text-center mt20">
+              <button class="mr10" color="primary"
+                      mat-raised-button> Update
+              </button>
+              <button color="warn"
+                      mat-raised-button> Reset
+              </button>
+            </div>
           </div>
         </div>
       </div>
     </div>
     <mat-card-actions class="text-center">
-      <button mat-raised-button color="primary">Update</button>
-      <button mat-raised-button color="warn">Reset</button>
     </mat-card-actions>
+
   </mat-card-content>
 </mat-card>
+
+
+<!--<form (ngSubmit)="formSubmit()">-->
+<!--  <div class="row">-->
+<!--    <div class="col-md-6 offset-md-3">-->
+<!--      <div class=" text-center">-->
+<!--        <mat-form-field class="example-full-width w100">-->
+<!--          <mat-label>Id</mat-label>-->
+<!--          <input disabled matInput placeholder="Ex. Pizza" value="{{user.id}}">-->
+<!--        </mat-form-field>-->
+<!--        <mat-form-field class="example-full-width w100">-->
+<!--          <mat-label>Username</mat-label>-->
+<!--          <input disabled matInput placeholder="Ex. Pizza" value="{{user.username}}">-->
+<!--        </mat-form-field>-->
+<!--        <mat-form-field class="example-full-width w100">-->
+<!--          <mat-label>Phone</mat-label>-->
+<!--          <input [(ngModel)]="users.phone" matInput name="phone" placeholder="Ex. Pizza" value="{{user.phone}}">-->
+<!--        </mat-form-field>-->
+<!--        <mat-form-field class="example-full-width w100">-->
+<!--          <mat-label>Email</mat-label>-->
+<!--          <input [(ngModel)]="users.email" matInput name="email" placeholder="Ex. Pizza" value="{{user.email}}">-->
+<!--        </mat-form-field>-->
+<!--        <mat-form-field class="example-full-width w100">-->
+<!--          <mat-label>Role</mat-label>-->
+<!--          <input disabled matInput placeholder="Ex. Pizza" value="{{user.authorities[0].authority}}">-->
+<!--        </mat-form-field>-->
+<!--        <mat-form-field class="example-full-width w100">-->
+<!--          <mat-label>firstName</mat-label>-->
+<!--          <input [(ngModel)]="users.firstName" matInput name="firstName" placeholder="Ex. Pizza"-->
+<!--                 value="{{user.firstName}}">-->
+<!--        </mat-form-field>-->
+<!--        <mat-form-field class="example-full-width w100">-->
+<!--          <mat-label>lastName</mat-label>-->
+<!--          <input [(ngModel)]="users.lastName" matInput name="lastName" placeholder="Ex. Pizza"-->
+<!--                 value="{{user.lastName}}">-->
+<!--        </mat-form-field>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--  <div class="text-center mt20">-->
+<!--    <button class="mr10" color="primary"-->
+<!--            mat-raised-button> Update-->
+<!--    </button>-->
+<!--    <button color="warn"-->
+<!--            mat-raised-button> Reset-->
+<!--    </button>-->
+<!--  </div>-->
+<!--</form>-->

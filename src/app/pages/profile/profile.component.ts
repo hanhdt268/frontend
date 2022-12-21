@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {LoginService} from "../../services/login.service";
+import {UserService} from "../../services/user.service";
 
 @Component({
   selector: 'app-profile',
@@ -7,8 +8,20 @@ import {LoginService} from "../../services/login.service";
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
+  @ViewChild("mainContainer") element: ElementRef | undefined;
+
   user: any = null;
-  constructor(private _login: LoginService) { }
+
+  users: any = {
+    phone: '',
+    email: '',
+    firstName: '',
+    lastName: '',
+    profile: '',
+  }
+
+  constructor(private _login: LoginService, private _user: UserService) {
+  }
 
   ngOnInit(): void {
     this.user = this._login.getUser();
@@ -19,4 +32,36 @@ export class ProfileComponent implements OnInit {
 
   }
 
+
+  // onOpenModal(mode: string) {
+  //   const button = document.createElement('button');
+  //   button.type = 'button';
+  //   button.style.display = 'none';
+  //   button.setAttribute('data-toggle', 'modal');
+  //   if (mode == 'edit') {
+  //     this.users = this.user;
+  //     button.setAttribute('data-target', '#updateEmployeeModal');
+  //   }
+  //   // @ts-ignore
+  //   this.element.nativeElement.appendChild(button);
+  //   button.click();
+  // }
+
+  // onUpdateEmployee(user: any) {
+  //   this._user.updateUser(user).subscribe({
+  //     next: (data) => (console.log("success")),
+  //     error: (error) => (console.log("fail"))
+  //   })
+  // }
+  // formSubmit() {
+  //   this._user.updateUser(this.users).subscribe({
+  //     next: (data: any) => {
+  //       Swal.fire('Success', '', 'success')
+  //     },
+  //     error: (error) => {
+  //       console.log(error)
+  //     }
+  //   })
+  // }
 }
+

@@ -1,5 +1,5 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
 import {SignupComponent} from "./pages/signup/signup.component";
 import {LoginComponent} from "./pages/login/login.component";
 import {HomeComponent} from "./pages/home/home.component";
@@ -9,6 +9,8 @@ import {AdminGuard} from "./services/admin.guard";
 import {NormalGuard} from "./services/normal.guard";
 import {ProfileComponent} from "./pages/profile/profile.component";
 import {WelcomeComponent} from "./pages/admin/welcome/welcome.component";
+import {ViewCategoriesComponent} from "./pages/admin/view-categories/view-categories.component";
+import {AddCategoryComponent} from "./pages/admin/add-category/add-category.component";
 
 const routes: Routes = [
   {
@@ -29,7 +31,7 @@ const routes: Routes = [
   {
     path: 'admin',
     component: DashboardComponent,
-    children:[
+    children: [
       {
         path: '',
         component: WelcomeComponent
@@ -38,6 +40,15 @@ const routes: Routes = [
         path: 'profile',
         component: ProfileComponent
       },
+      {
+        path: 'categories',
+        component: ViewCategoriesComponent
+      },
+      {
+        path: 'add-category',
+        component: AddCategoryComponent
+      }
+
     ],
     canActivate: [AdminGuard]
   },
@@ -53,4 +64,5 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}
