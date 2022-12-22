@@ -1,0 +1,57 @@
+<mat-card>
+  <h1>Update Profile</h1>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 offset-md-2">
+        <form (ngSubmit)="updateUser()" *ngIf="user">
+          <mat-form-field appearance="fill" class="w100">
+            <mat-label>Enter Username</mat-label>
+            <input [(ngModel)]="user.id" disabled matInput name="id" placeholder="Enter Here" type="text">
+          </mat-form-field>
+          <mat-form-field appearance="fill" class="w100">
+            <mat-label>Enter Username</mat-label>
+            <input [(ngModel)]="user.username" matInput name="username" placeholder="Enter Here" type="text">
+          </mat-form-field>
+          <mat-form-field appearance="fill" class="w100">
+            <mat-label>Enter Password</mat-label>
+            <input [(ngModel)]="user.password" matInput name="password" placeholder="Enter Here" type="password">
+          </mat-form-field>
+          <mat-form-field appearance="fill" class="w100">
+            <mat-label>Enter Email</mat-label>
+            <input [(ngModel)]="user.email" matInput name="email" placeholder="Enter Here" type="text">
+          </mat-form-field>
+          <mat-form-field appearance="fill" class="w100">
+            <mat-label>Enter Phone</mat-label>
+            <input [(ngModel)]="user.phone" matInput name="phone" placeholder="Enter Here" type="text">
+          </mat-form-field>
+          <mat-form-field appearance="fill" class="w100">
+            <mat-label>Enter LinkImage</mat-label>
+            <input [(ngModel)]="user.profile" matInput name="profile" placeholder="Enter Here" type="text">
+          </mat-form-field>
+          <div class="row">
+            <div class="col-md-6">
+              <mat-form-field appearance="fill" class="w100">
+                <mat-label>Enter FirstName</mat-label>
+                <input [(ngModel)]="user.firstName" matInput name="firstName" placeholder="Enter Here"
+                       type="text">
+              </mat-form-field>
+            </div>
+            <div class="col-md-6">
+              <mat-form-field appearance="fill" class="w100">
+                <mat-label>Enter LastName</mat-label>
+                <input [(ngModel)]="user.lastName" matInput name="lastName"
+                       placeholder="Enter Here" type="text">
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="container text-center">
+            <button color="primary" mat-raised-button>Update</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</mat-card>
+
+
+{{user | json}}

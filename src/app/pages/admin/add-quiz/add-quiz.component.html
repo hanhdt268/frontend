@@ -1,0 +1,62 @@
+<mat-card>
+  <h1>Add New Quiz</h1>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 offset-md-2">
+
+        <form (ngSubmit)="addSubmit()">
+          <mat-form-field appearance="fill" class="w100">
+            <mat-label>Enter Title</mat-label>
+            <input [(ngModel)]="QuizData.title" matInput name="title" placeholder="Enter Here" type="text">
+          </mat-form-field>
+
+          <mat-form-field appearance="fill" class="w100">
+            <mat-label>Enter description</mat-label>
+            <textarea [(ngModel)]="QuizData.description" matInput name="description" placeholder="Enter Here"
+                      rows="5" type="text"></textarea>
+          </mat-form-field>
+
+          <div class="row">
+            <div class="col-md-6">
+              <mat-form-field appearance="fill" class="w100">
+                <mat-label>Maximum Marks</mat-label>
+                <input [(ngModel)]="QuizData.maxMarks" matInput name="maxMarks" placeholder="Enter Here"
+                       type="text">
+              </mat-form-field>
+            </div>
+            <div class="col-md-6">
+              <mat-form-field appearance="fill" class="w100">
+                <mat-label>Number Of Question</mat-label>
+                <input [(ngModel)]="QuizData.numberOfQuestion" matInput name="numberOfQuestion"
+                       placeholder="Enter Here" type="text">
+              </mat-form-field>
+            </div>
+          </div>
+          <mat-slide-toggle
+            [(ngModel)]="QuizData.active"
+            [checked]="false"
+            class="mt10"
+            color="accent"
+            name="active">
+            Publish status
+          </mat-slide-toggle>
+          <br>
+          <!--          category select-->
+          <mat-form-field appearance="fill" class="w100 mt10">
+            <mat-label>Categories</mat-label>
+            <mat-select [(ngModel)]="QuizData.category.cId" name="category">
+              <mat-option *ngFor="let item of categories" [value]="item.cId">
+                {{item.title}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <div class="container text-center">
+            <button color="primary" mat-raised-button>Add</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</mat-card>
+
