@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {UserService} from "../../services/user.service";
 import {MatSnackBar} from "@angular/material/snack-bar";
-import Swal from "sweetalert2";
 import {Router} from "@angular/router";
+import Swal from "sweetalert2";
 
 @Component({
   selector: 'app-signup',
@@ -42,7 +42,7 @@ export class SignupComponent implements OnInit {
         this._snack.open('user already exists !!', '', {
           duration: 3000
         });
-        // Swal.fire('Register Fail', 'username already exists', 'error')
+
       },
       complete: () => console.log("the end")
     })

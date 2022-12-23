@@ -32,7 +32,10 @@ import {AddQuizComponent} from './pages/admin/add-quiz/add-quiz.component';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatSelectModule} from '@angular/material/select';
 import {UpdateQuizComponent} from './pages/admin/update-quiz/update-quiz.component';
-import { UpdateProfileComponent } from './pages/update-profile/update-profile.component';
+import {UpdateProfileComponent} from './pages/update-profile/update-profile.component';
+import {ViewQuestionComponent} from './pages/admin/view-question/view-question.component';
+import {AddQuestionComponent} from './pages/admin/add-question/add-question.component';
+import {CKEditorModule} from '@ckeditor/ckeditor5-angular';
 
 @NgModule({
   declarations: [
@@ -52,7 +55,9 @@ import { UpdateProfileComponent } from './pages/update-profile/update-profile.co
     ViewQuizzesComponent,
     AddQuizComponent,
     UpdateQuizComponent,
-    UpdateProfileComponent
+    UpdateProfileComponent,
+    ViewQuestionComponent,
+    AddQuestionComponent
   ],
   imports: [
     BrowserModule,
@@ -69,7 +74,8 @@ import { UpdateProfileComponent } from './pages/update-profile/update-profile.co
     MatListModule,
     MatCardModule,
     MatSlideToggleModule,
-    MatSelectModule
+    MatSelectModule,
+    CKEditorModule
   ],
   providers: [authInterceptorProvides],
   bootstrap: [AppComponent]

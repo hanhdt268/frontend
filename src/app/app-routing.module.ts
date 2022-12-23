@@ -15,6 +15,8 @@ import {ViewQuizzesComponent} from "./pages/admin/view-quizzes/view-quizzes.comp
 import {AddQuizComponent} from "./pages/admin/add-quiz/add-quiz.component";
 import {UpdateQuizComponent} from "./pages/admin/update-quiz/update-quiz.component";
 import {UpdateProfileComponent} from "./pages/update-profile/update-profile.component";
+import {ViewQuestionComponent} from "./pages/admin/view-question/view-question.component";
+import {AddQuestionComponent} from "./pages/admin/add-question/add-question.component";
 
 const routes: Routes = [
   {
@@ -65,10 +67,17 @@ const routes: Routes = [
         component: UpdateQuizComponent
       },
       {
-        path: 'profile/:id',
+        path: 'profile/:Id',
         component: UpdateProfileComponent
+      },
+      {
+        path: 'view-question/:qid/:title',
+        component: ViewQuestionComponent
+      },
+      {
+        path: 'add-question/:qid/:title',
+        component: AddQuestionComponent
       }
-
     ],
     canActivate: [AdminGuard]
   },

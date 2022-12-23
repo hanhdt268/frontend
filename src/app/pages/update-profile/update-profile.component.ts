@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {Router} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {LoginService} from "../../services/login.service";
 import {UserService} from "../../services/user.service";
 import Swal from "sweetalert2";
@@ -15,10 +15,12 @@ export class UpdateProfileComponent implements OnInit {
   id: any = 0;
   user: any;
 
-  constructor(private _route: Router, private _login: LoginService, private _user: UserService) {
+  constructor(private _route: Router, private _login: LoginService, private _user: UserService, private route: ActivatedRoute) {
   }
 
   ngOnInit(): void {
+    // @ts-ignore
+    this.id = this.route.snapshot.params.Id;
     this.user = this._login.getUser();
   }
 
