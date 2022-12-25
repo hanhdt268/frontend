@@ -1,0 +1,12 @@
+.truncate {
+  display: block;
+  white-space: nowrap;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.example-header-image {
+  background-image: url('https://media.istockphoto.com/id/1128101520/vector/exam-preparation-school-test-examination-concept-checklist-and-hourglass-choosing-answer.jpg?s=612x612&w=0&k=20&c=MadTdyuUWlTbOqBLTwlRvftLCOobo6BUKYdJVuLjc0Q=');
+  background-size: cover;
+}
