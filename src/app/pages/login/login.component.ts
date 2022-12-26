@@ -20,6 +20,7 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
   }
 
   formSubmit() {
@@ -56,7 +57,7 @@ export class LoginComponent implements OnInit {
               this._router.navigate(['admin']);
               this._login.loginStatusSubject.next(true);
             } else if (this._login.getUserRole() == 'Normal') {
-              this._router.navigate(['user-dashboard']);
+              this._router.navigate(['user-dashboard/0']);
               this._login.loginStatusSubject.next(true);
             } else {
               this._login.logOut();

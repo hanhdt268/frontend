@@ -11,11 +11,17 @@ export class QuestionService {
   constructor(private _http: HttpClient) {
   }
 
-  //get question
+  //get all question
 
   public getQuestionOfQuiz(qId: any) {
     return this._http.get(`${this.apiBaseUrl}/question/quiz/all/${qId}`)
   }
+
+  //get question
+  public getQuestionOfQuizForTest(qId: any) {
+    return this._http.get(`${this.apiBaseUrl}/question/quiz/${qId}`)
+  }
+
 
   //add question
 
@@ -26,6 +32,11 @@ export class QuestionService {
   //delete question
   public deleteQuestion(quesId: any) {
     return this._http.delete(`${this.apiBaseUrl}/question/${quesId}`)
+  }
+
+  //eval quiz
+  public evalQuiz(questions: any) {
+    return this._http.post(`${this.apiBaseUrl}/question/eval-quiz`, questions)
   }
 
 }

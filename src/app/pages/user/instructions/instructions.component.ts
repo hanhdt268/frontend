@@ -32,10 +32,8 @@ export class InstructionsComponent implements OnInit {
   startQuiz() {
     Swal.fire({
       title: 'Do you want to save the quiz?',
-     
       showCancelButton: true,
       confirmButtonText: 'Start',
-
       icon: "info"
     }).then((result) => {
       /* Read more about isConfirmed, isDenied below */

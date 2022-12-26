@@ -17,6 +17,9 @@ import {UpdateQuizComponent} from "./pages/admin/update-quiz/update-quiz.compone
 import {UpdateProfileComponent} from "./pages/update-profile/update-profile.component";
 import {ViewQuestionComponent} from "./pages/admin/view-question/view-question.component";
 import {AddQuestionComponent} from "./pages/admin/add-question/add-question.component";
+import {LoadQuizComponent} from "./pages/user/load-quiz/load-quiz.component";
+import {InstructionsComponent} from "./pages/user/instructions/instructions.component";
+import {StartComponent} from "./pages/user/start/start.component";
 
 const routes: Routes = [
   {
@@ -84,8 +87,28 @@ const routes: Routes = [
   {
     path: 'user-dashboard',
     component: UserDashboardComponent,
-    pathMatch: 'full',
-    canActivate: [NormalGuard]
+    canActivate: [NormalGuard],
+    children: [
+      {
+        path: 'profile',
+        component: ProfileComponent
+      },
+      {
+        path: ':catId',
+        component: LoadQuizComponent
+      },
+      {
+        path: 'instructions/:qId',
+        component: InstructionsComponent
+      },
+
+    ]
+  },
+  {
+    path: 'start/:qId',
+    component: StartComponent,
+    canActivate: [NormalGuard],
+    
   }
 ];
 

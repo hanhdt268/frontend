@@ -6,7 +6,8 @@
   <span class="example-spacer"></span>
   <a *ngIf="!isLoggedIn" [routerLink]="'/login'" aria-label="Example icon-button with heart icon"
      class="example-icon favorite-icon mr20 m120"
-     mat-icon-button>Login
+     mat-icon-button
+     routerLinkActive="active">Login
 
   </a>
   <a *ngIf="!isLoggedIn" [routerLink]="'/signup'" aria-label="Example icon-button with share icon"

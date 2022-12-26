@@ -1,8 +1,15 @@
-<div class="bootstrap-wrapper">
+<div *ngIf="!isSubmit" class="bootstrap-wrapper">
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-2">
-        <h3>Instruction</h3>
+        <mat-card style="margin-top: 70px">
+          <h3><b>Instruction</b></h3>
+          <ul>
+            <li>Do not refresh the page otherwise will get new question in the quiz</li>
+            <li>Do not switch the table</li>
+            <li>Do not minimize the window</li>
+          </ul>
+        </mat-card>
       </div>
       <div class="col-md-8 mt20">
         <ng-container *ngIf="questions">
@@ -11,37 +18,78 @@
 
         <mat-card *ngFor="let item of questions; let i = index">
           <mat-card-content>
-            <p><b>Q {{i + 1}})</b> <span [innerHTML]="item.content" class="ml10"></span></p>
+            <p><b>Q{{i + 1}} )</b> <span [innerHTML]="item.content" class="ml10"></span></p>
             <mat-divider></mat-divider>
             <br>
             <div class="row mt20">
               <div class="col-md-6">
-                <input [name]="i" [value]="item.option1" type="radio">{{item.option1}}
+                <input [(ngModel)]="item.givenAnswer" [name]="i.toString()" [value]="item.option1"
+                       type="radio">{{item.option1}}
               </div>
 
               <div class="col-md-6">
-                <input [name]="i" [value]="item.option2" type="radio">{{item.option2}}
+                <input [(ngModel)]="item.givenAnswer" [name]="i.toString()" [value]="item.option2"
+                       type="radio">{{item.option2}}
               </div>
 
             </div>
             <div class="row mt20">
               <div class="col-md-6">
-                <input [name]="i" [value]="item.option3" type="radio">{{item.option3}}
+                <input [(ngModel)]="item.givenAnswer" [name]="i.toString()" [value]="item.option3"
+                       type="radio">{{item.option3}}
               </div>
               <div class="col-md-6">
-                <input [name]="i" [value]="item.option4" type="radio">{{item.option4}}
+                <input [(ngModel)]="item.givenAnswer" [name]="i.toString()" [value]="item.option4"
+                       type="radio">{{item.option4}}
               </div>
 
             </div>
           </mat-card-content>
         </mat-card>
         <div class="container text-center mt20">
-          <button color="primary" mat-raised-button>Submit Quiz</button>
+          <button (click)="submitQuiz()" color="primary" mat-raised-button>Submit Quiz</button>
         </div>
+      </div>
+      <div class="col-md-2">
+        <mat-card style="margin-top: 70px">
+          <mat-card-header>
+            <mat-card-title>Progress</mat-card-title>
+            <mat-card-subtitle>Quiz will automatically submitted when timer reaches to <b>0.0</b></mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-content>
+            <h1 class="text-center">{{getFormattedTimer()}}</h1>
+            <mat-spinner [value]="(timer/(this.questions.length * 2 * 60)) * 100" color="warn" mode="determinate"
+                         style="margin: auto"></mat-spinner>
+          </mat-card-content>
+        </mat-card>
       </div>
     </div>
   </div>
 </div>
+
+<div *ngIf="isSubmit" class="bootstrap-wrapper">
+  <div class="container">
+    <div class="row mt20">
+      <div class="col-md-6 offset-md-3">
+        <mat-card>
+          <mat-card-header>
+            <mat-card-title>Quiz Result</mat-card-title>
+          </mat-card-header>
+          <mat-card-content class="text-center">
+            <h1>Mark Got:  {{markGot}}</h1>
+            <h1>Correct Answer: {{correctAnswer}}</h1>
+            <h1>Attempted: {{attempt}}</h1>
+          </mat-card-content>
+          <mat-card-actions class="text-center">
+            <button (click)="printPage()" color="primary" mat-raised-button>Print</button>
+            <button [routerLink]="'/user-dashboard/0'" color="accent" mat-raised-button>Home</button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!--<div class="row mt20">-->
 <!--  <mat-radio-group class="col-md-6">-->
 <!--    <mat-radio-button [value]="item.option1">{{item.option1}}</mat-radio-button>-->
