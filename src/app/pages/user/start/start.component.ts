@@ -10,8 +10,9 @@ import Swal from "sweetalert2";
   styleUrls: ['./start.component.css']
 })
 export class StartComponent implements OnInit {
-  qId: any
-  questions: any
+  qId: any;
+
+  question: any
 
   markGot = 0;
   correctAnswer = 0;
@@ -71,7 +72,7 @@ export class StartComponent implements OnInit {
 
   evalQuiz() {
     //call to server to check questions
-    this._question.evalQuiz(this.questions).subscribe({
+    this._question.evalQuiz(this.question).subscribe({
       next: (data: any) => {
         this.markGot = parseFloat(Number(data.markGot).toFixed(2));
         this.correctAnswer = data.correctAnswer;
@@ -109,13 +110,14 @@ export class StartComponent implements OnInit {
   private loadQuestion() {
     this._question.getQuestionOfQuizForTest(this.qId).subscribe({
       next: (data: any) => {
-        this.questions = data;
-        this.timer = this.questions.length * 2 * 60;
+        this.question = data;
+        this.timer = this.question.length * 2 * 60;
         // this.questions.forEach((item: any) => {
         //   item['givenAnswer'] = '';
         // })
         this.startTimer();
-        console.log(this.questions)
+        console.log(data)
+        console.log(this.question)
       },
       error: (error) => {
         console.log(error)

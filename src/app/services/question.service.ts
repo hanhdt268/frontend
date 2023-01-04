@@ -35,8 +35,8 @@ export class QuestionService {
   }
 
   //eval quiz
-  public evalQuiz(questions: any) {
-    return this._http.post(`${this.apiBaseUrl}/question/eval-quiz`, questions)
+  public evalQuiz(question: any) {
+    return this._http.post(`${this.apiBaseUrl}/question/eval-quiz`, question)
   }
 
 }

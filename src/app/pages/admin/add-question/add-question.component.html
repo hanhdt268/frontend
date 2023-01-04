@@ -6,16 +6,22 @@
       <mat-card>
         <mat-card-header>
           <mat-card-subtitle>Enter the detail of the new question</mat-card-subtitle>
+          
         </mat-card-header>
 
         <mat-card-content>
-          <form (ngSubmit)="addQuestion()">
+          <form (ngSubmit)="addQuestion()" enctype="multipart/form-data">
             <!--            <mat-form-field class="w100">-->
             <!--              <mat-label>Write question content</mat-label>-->
             <!--              <textarea [(ngModel)]="question.content" matInput name="content" placeholder="Enter Here"-->
             <!--                        rows="8"></textarea>-->
             <!--            </mat-form-field>-->
             <ckeditor [(ngModel)]="question.content" [editor]="Editor" name="content"></ckeditor>
+
+            <div class="div w100">
+              <label>Images</label>
+              <input [(ngModel)]="question.image" name="image" type="file">
+            </div>
 
             <div class="row">
               <div class="col-md-6">

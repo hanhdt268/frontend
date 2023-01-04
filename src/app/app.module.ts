@@ -12,7 +12,7 @@ import {LoginComponent} from './pages/login/login.component';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatIconModule} from "@angular/material/icon";
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {HomeComponent} from './pages/home/home.component';
@@ -32,7 +32,7 @@ import {AddQuizComponent} from './pages/admin/add-quiz/add-quiz.component';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatSelectModule} from '@angular/material/select';
 import {UpdateQuizComponent} from './pages/admin/update-quiz/update-quiz.component';
-import {UpdateProfileComponent} from './pages/update-profile/update-profile.component';
+import {UpdateProfileComponent} from './pages/admin/update-profile/update-profile.component';
 import {ViewQuestionComponent} from './pages/admin/view-question/view-question.component';
 import {AddQuestionComponent} from './pages/admin/add-question/add-question.component';
 import {CKEditorModule} from '@ckeditor/ckeditor5-angular';
@@ -43,6 +43,7 @@ import {StartComponent} from './pages/user/start/start.component';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {NgxUiLoaderHttpModule, NgxUiLoaderModule} from "ngx-ui-loader";
+import {PasswordQuizComponent} from './pages/user/password-quiz/password-quiz.component';
 
 @NgModule({
   declarations: [
@@ -68,7 +69,8 @@ import {NgxUiLoaderHttpModule, NgxUiLoaderModule} from "ngx-ui-loader";
     SidebarUserComponent,
     LoadQuizComponent,
     InstructionsComponent,
-    StartComponent
+    StartComponent,
+    PasswordQuizComponent
   ],
   imports: [
     BrowserModule,
@@ -90,6 +92,7 @@ import {NgxUiLoaderHttpModule, NgxUiLoaderModule} from "ngx-ui-loader";
     MatRadioModule,
     MatProgressSpinnerModule,
     NgxUiLoaderModule,
+    ReactiveFormsModule,
     NgxUiLoaderHttpModule.forRoot({
       showForeground: true
     })

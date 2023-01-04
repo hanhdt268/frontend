@@ -18,6 +18,7 @@ export class AddQuizComponent implements OnInit {
       description: '',
       maxMarks: '',
       numberOfQuestion: '',
+      password: '',
       active: true,
       category: {
         cId: '',
@@ -58,6 +59,7 @@ export class AddQuizComponent implements OnInit {
             description: '',
             maxMarks: '',
             numberOfQuestion: '',
+            password: '',
             active: true,
             category: {
               cId: '',

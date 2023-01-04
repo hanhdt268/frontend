@@ -8,15 +8,16 @@
             <li>Do not refresh the page otherwise will get new question in the quiz</li>
             <li>Do not switch the table</li>
             <li>Do not minimize the window</li>
+
           </ul>
         </mat-card>
       </div>
       <div class="col-md-8 mt20">
-        <ng-container *ngIf="questions">
-          <h1>On Going Quiz <b>{{questions[0].quiz.title}}</b></h1>
+        <ng-container *ngIf="question">
+          <h1>On Going Quiz <b>{{question[0].quiz.title}}</b></h1>
         </ng-container>
 
-        <mat-card *ngFor="let item of questions; let i = index">
+        <mat-card *ngFor="let item of question; let i = index">
           <mat-card-content>
             <p><b>Q{{i + 1}} )</b> <span [innerHTML]="item.content" class="ml10"></span></p>
             <mat-divider></mat-divider>
@@ -42,7 +43,6 @@
                 <input [(ngModel)]="item.givenAnswer" [name]="i.toString()" [value]="item.option4"
                        type="radio">{{item.option4}}
               </div>
-
             </div>
           </mat-card-content>
         </mat-card>
@@ -58,7 +58,7 @@
           </mat-card-header>
           <mat-card-content>
             <h1 class="text-center">{{getFormattedTimer()}}</h1>
-            <mat-spinner [value]="(timer/(this.questions.length * 2 * 60)) * 100" color="warn" mode="determinate"
+            <mat-spinner [value]="(timer/(this.question.length * 2 * 60)) * 100" color="warn" mode="determinate"
                          style="margin: auto"></mat-spinner>
           </mat-card-content>
         </mat-card>

@@ -22,4 +22,7 @@ export class UserService {
     return this._http.post(`${this.apiService}/users/`, user)
   }
 
+  //get username
+
+
 }

@@ -9,7 +9,10 @@
             <mat-label>Enter Title</mat-label>
             <input [(ngModel)]="quiz.title" matInput name="title" placeholder="Enter Here" type="text">
           </mat-form-field>
-
+          <mat-form-field appearance="fill" class="w100">
+            <mat-label>Enter Password</mat-label>
+            <input [(ngModel)]="quiz.password" matInput name="password" placeholder="Enter Here" type="text">
+          </mat-form-field>
           <mat-form-field appearance="fill" class="w100">
             <mat-label>Enter description</mat-label>
             <textarea [(ngModel)]="quiz.description" matInput name="description" placeholder="Enter Here"

@@ -14,12 +14,13 @@ import {AddCategoryComponent} from "./pages/admin/add-category/add-category.comp
 import {ViewQuizzesComponent} from "./pages/admin/view-quizzes/view-quizzes.component";
 import {AddQuizComponent} from "./pages/admin/add-quiz/add-quiz.component";
 import {UpdateQuizComponent} from "./pages/admin/update-quiz/update-quiz.component";
-import {UpdateProfileComponent} from "./pages/update-profile/update-profile.component";
+import {UpdateProfileComponent} from "./pages/admin/update-profile/update-profile.component";
 import {ViewQuestionComponent} from "./pages/admin/view-question/view-question.component";
 import {AddQuestionComponent} from "./pages/admin/add-question/add-question.component";
 import {LoadQuizComponent} from "./pages/user/load-quiz/load-quiz.component";
 import {InstructionsComponent} from "./pages/user/instructions/instructions.component";
 import {StartComponent} from "./pages/user/start/start.component";
+import {PasswordQuizComponent} from "./pages/user/password-quiz/password-quiz.component";
 
 const routes: Routes = [
   {
@@ -101,6 +102,10 @@ const routes: Routes = [
         path: 'instructions/:qId',
         component: InstructionsComponent
       },
+      {
+        path: 'password-quiz/:qId',
+        component: PasswordQuizComponent
+      }
 
     ]
   },
@@ -108,7 +113,7 @@ const routes: Routes = [
     path: 'start/:qId',
     component: StartComponent,
     canActivate: [NormalGuard],
-    
+
   }
 ];
 

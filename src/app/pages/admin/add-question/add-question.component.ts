@@ -14,9 +14,20 @@ export class AddQuestionComponent implements OnInit {
   public Editor = ClassicEditor;
   qId: any;
   qTitle: any;
+  question1 = {
+    quiz: {},
+    content: '',
+    image: '',
+    option1: '',
+    option2: '',
+    option3: '',
+    option4: '',
+    answer: ''
+  }
   question = {
     quiz: {},
     content: '',
+    image: '',
     option1: '',
     option2: '',
     option3: '',
@@ -35,6 +46,7 @@ export class AddQuestionComponent implements OnInit {
     // @ts-ignore
     this.question.quiz['qId'] = this.qId;
 
+
   }
 
 
@@ -46,6 +58,7 @@ export class AddQuestionComponent implements OnInit {
         this.question.option2 = '';
         this.question.option3 = '';
         this.question.option4 = '';
+        this.question.image = '';
         this.question.answer = '';
         this.question.content = '';
 

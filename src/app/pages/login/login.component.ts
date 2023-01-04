@@ -45,25 +45,46 @@ export class LoginComponent implements OnInit {
         console.log(data)
         //login...
         this._login.loginUser(data.token);
-
-        this._login.getCurrentUser().subscribe({
-          next: (user: any) => {
-            this._login.setUser(user);
-            console.log(user)
-            //admin: admin dashboard
-            //normal: normal dashboard
-            if (this._login.getUserRole() == 'Admin') {
-              Swal.fire('Successfully', 'Login', 'success')
-              this._router.navigate(['admin']);
-              this._login.loginStatusSubject.next(true);
-            } else if (this._login.getUserRole() == 'Normal') {
-              this._router.navigate(['user-dashboard/0']);
-              this._login.loginStatusSubject.next(true);
-            } else {
-              this._login.logOut();
-            }
+        let timerInterval: string | number | NodeJS.Timer | undefined
+        Swal.fire({
+          title: 'Successfully',
+          icon: "success",
+          timer: 1000,
+          // didOpen: () => {
+          //   // @ts-ignore
+          //   Swal.showLoading()
+          //   // @ts-ignore
+          //   const b = Swal.getHtmlContainer().querySelector('b')
+          //   timerInterval = setInterval(() => {
+          //     // @ts-ignore
+          //     b.textContent = Swal.getTimerLeft()
+          //   }, 100)
+          // },
+          // willClose: () => {
+          //   clearInterval(timerInterval)
+          // }
+        }).then((result) => {
+          if (result.dismiss === Swal.DismissReason.timer) {
+            this._login.getCurrentUser().subscribe({
+              next: (user: any) => {
+                this._login.setUser(user);
+                console.log(user)
+                //admin: admin dashboard
+                //normal: normal dashboard
+                if (this._login.getUserRole() == 'Admin') {
+                  this._router.navigate(['admin']);
+                  this._login.loginStatusSubject.next(true);
+                } else if (this._login.getUserRole() == 'Normal') {
+                  this._router.navigate(['user-dashboard/0']);
+                  this._login.loginStatusSubject.next(true);
+                } else {
+                  this._login.logOut();
+                }
+              }
+            })
           }
         })
+
       },
       error: (error) => {
         console.log("error");
